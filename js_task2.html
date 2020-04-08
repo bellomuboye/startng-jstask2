@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>bellomuboye - JavaScript Task 2</title>
+  </head>
+
+  <body>
+    <script>
+    //Various objects nested in an array
+     let data = [
+         {principal: 2500, time: 1.8},
+         {principal: 1000, time: 5},
+         {principal: 3000, time: 1},
+         {principal: 2000, time: 3}
+    ];
+
+    //Function created with arr used to represent name of array eventually used
+    //For loop to iterate over the array and assign rate based on values of principal and time
+    //Then calculates interest. Finally pushes all values to another array which is logged to console
+     function interestCalculator(arr) {
+         let interestData = [];
+         for (let i of arr) {
+             let rate = 0;
+
+             if ((i.principal >= 2500) && (i.time > 1 && i.time<3)) {
+                 rate = 3;
+             }
+             else if ((i.principal >= 2500) && (i.time >= 3)) {
+                 rate = 4;
+             }
+             else if ((i.principal < 2500) || (i.time <= 1)){
+                 rate = 2;
+             }
+             else {
+                 rate = 1;
+             }
+             let interest = (i.principal * rate * i.time) / 100;
+             interestData.push({principal: i.principal, time: i.time, rate: rate, interest: interest});
+         }
+         console.log(interestData)
+         return interestData;
+     }
+
+     interestCalculator(data);
+    </script>
+  </body>
+</html>
